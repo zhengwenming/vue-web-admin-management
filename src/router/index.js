@@ -10,7 +10,7 @@ const home = () => import('../views/home.vue');
 const product = () => import('../views/product.vue');
 const axdatalist = () => import('../views/axdatalist.vue');
 const articlemanagement = () => import('../views/articlemanagement.vue');
-// const articlemanagementEdit = () => import('../views/articlemanagementEdit.vue');
+const notFound = () => import('../views/others/404.vue');
 
 
 Vue.use(VueRouter)
@@ -51,8 +51,17 @@ const routes = [
         name: 'Articlemanagement',
         component: articlemanagement,
         meta: ['数据管理', '文章列表']
+      },
+      {
+        path: '/404',
+        name: '页面不存在',
+        component: notFound,
+        meta: ['页面不存在']
+      },
+      {
+        path: '*',
+        redirect: '404'
       }
-    
     ]
   },
 
