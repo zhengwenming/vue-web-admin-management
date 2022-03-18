@@ -1,13 +1,10 @@
 pipeline {
-    echo 'pipeline start'
     agent any;
-    echo 'agent any'
  environment{
       targetAppStarterDeployRemoteDirectory='/webstack_dev/manager'
       targetAppStarterRemovePrefix='manager'
       targetAppStarterSourceFiles='manager/**'
  }
- echo 'stages start'
 stages {
      echo '代码编译'
         stage('代码编译') {
