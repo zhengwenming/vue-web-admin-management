@@ -6,7 +6,6 @@ pipeline {
       targetAppStarterSourceFiles='manager/**'
  }
 stages {
-     echo '代码编译'
         stage('代码编译') {
                       steps {
                             //http://registry.npm.taobao.org升级中2021-09-15 http://r.npm.taobao.org正常
