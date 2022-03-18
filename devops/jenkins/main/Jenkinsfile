@@ -14,13 +14,12 @@ stages {
                         //     sh ' npm install --registry=http://registry.npm.taobao.org'
 
                                 //http://registry.npm.taobao.org升级中2021-09-15 http://r.npm.taobao.org正常
-                            // sh  'npm config set registry https://registry.npmjs.org/'
-                            // sh ' npm install mirror-config-china --registry=https://registry.npmjs.org/'
-                            // sh ' npm install sass-loader node-sass -D --registry=https://registry.npmjs.org/'
-                            // sh ' npm install --registry=https://registry.npmjs.org/'
-                            // sh  'npm install -g cross-env  --no-bin-links'
-                            
-                            // sh 'npm install' 
+                            sh  'npm config set registry https://registry.npmjs.org/'
+                            sh ' npm install mirror-config-china --registry=https://registry.npmjs.org/'
+                            sh ' npm install sass-loader node-sass -D --registry=https://registry.npmjs.org/'
+                            sh ' npm install --registry=https://registry.npmjs.org/'
+                            sh  'npm install -g cross-env  --no-bin-links'
+                            sh 'npm install' 
                             echo 'npm run build-dev'
                             sh ' npm run build-dev'
                        }
