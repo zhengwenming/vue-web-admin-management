@@ -1,0 +1,61 @@
+pipeline {
+    agent any;
+
+ environment{
+      targetAppStarterDeployRemoteDirectory='/webstack_uat/manager'
+      targetAppStarterRemovePrefix='manager'
+      targetAppStarterSourceFiles='manager/**'
+ }
+
+stages {
+
+        stage('代码编译') {
+                      steps {
+                              //http://registry.npm.taobao.org升级中2021-09-15 http://r.npm.taobao.org正常
+                        //     sh ' npm install mirror-config-china --registry=http://registry.npm.taobao.org'
+                        //     sh ' npm install sass-loader node-sass -D --registry=http://registry.npm.taobao.org'
+                        //     sh ' npm install --registry=http://registry.npm.taobao.org'
+
+                                //http://registry.npm.taobao.org升级中2021-09-15 http://r.npm.taobao.org正常
+                            sh  'npm config set registry https://registry.npmjs.org/'
+                            sh ' npm install mirror-config-china --registry=https://registry.npmjs.org/'
+                            sh ' npm install sass-loader node-sass -D --registry=https://registry.npmjs.org/'
+                            sh ' npm install --registry=https://registry.npmjs.org/'
+                            sh  'npm install -g cross-env  --no-bin-links'
+                            
+                            sh ' npm run build-uat'
+                       }
+        }
+         stage("10-publish-target-jar in 145"){
+            steps{
+
+                    sshPublisher(
+                        publishers:
+                        [
+                            sshPublisherDesc(
+                                    configName: '10.130.0.145',
+                                    transfers:
+                                            [sshTransfer(
+                                                        cleanRemote: true,
+                                                        excludes: '',
+                                                        execTimeout: 120000,
+                                                        execCommand: 'chmod -R 777 ~'+targetAppStarterDeployRemoteDirectory,
+                                                        flatten: false,
+                                                        makeEmptyDirs: true,
+                                                        noDefaultExcludes: false,
+                                                        remoteDirectory: targetAppStarterDeployRemoteDirectory,
+                                                        remoteDirectorySDF: false,
+                                                        removePrefix: targetAppStarterRemovePrefix,
+                                                        sourceFiles: targetAppStarterSourceFiles
+                                                        )
+                                            ],
+                                    usePromotionTimestamp: false,
+                                    useWorkspaceInPromotion: false,
+                                    verbose: true
+                                    )
+                        ]
+                    )
+            }
+        }
+ }
+}
