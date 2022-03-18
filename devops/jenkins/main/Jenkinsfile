@@ -9,9 +9,9 @@ stages {
         stage('代码编译') {
                       steps {
                             //http://registry.npm.taobao.org升级中2021-09-15 http://r.npm.taobao.org正常
-                            sh ' npm install mirror-config-china --registry=http://r.npm.taobao.org'
-                            sh ' npm install sass-loader node-sass -D --registry=http://r.npm.taobao.org'
-                            sh ' npm install --registry=http://r.npm.taobao.org'
+                            // sh ' npm install mirror-config-china --registry=http://r.npm.taobao.org'
+                            // sh ' npm install sass-loader node-sass -D --registry=http://r.npm.taobao.org'
+                            // sh ' npm install --registry=http://r.npm.taobao.org'
 
 
                                 //http://registry.npm.taobao.org升级中2021-09-15 http://r.npm.taobao.org正常
