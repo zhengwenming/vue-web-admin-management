@@ -8,7 +8,7 @@
           <!-- 左侧header -->
           <div class="leftHeader flex f-fff" v-if="initThemeConfig.leftHeader">
             <img src="@/assets/img/axlogo.png" alt="">
-            <h1>爱心有家后台管理系统</h1>
+            <h1>XX后台管理系统</h1>
           </div>
           <el-menu :default-active="defaultActive" style="min-height: 100%;" background-color="#fff"
             text-color="#303133" active-text-color="#409eff" router>
