@@ -21,7 +21,7 @@ stages {
                             // sh ' npm install --registry=https://registry.npmjs.org/'
                             sh  'npm install -g cross-env  --no-bin-links'
                             sh  'npm install' 
-                            sh ' npm run build-dev'
+                            sh  'npm run build-prod'
                        }
         }
          stage("publish-target-dist in 147"){
