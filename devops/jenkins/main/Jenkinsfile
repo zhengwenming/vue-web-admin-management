@@ -31,7 +31,7 @@ stages {
                             sshPublisherDesc(
                                 configName: 'my-aliyun-server', transfers: [
                                     sshTransfer(
-                                                 cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/opt/docker/nginx/volumes/www', remoteDirectorySDF: false, removePrefix: 'dist/', sourceFiles: 'dist/**'
+                                                 cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/demo', remoteDirectorySDF: false, removePrefix: 'dist/', sourceFiles: 'dist/**'
                                                 )
                                                                           ], 
                                                  usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false
