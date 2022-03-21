@@ -5,18 +5,18 @@ const path = require('path')
 module.exports = {
     publicPath: '/',
     // assetsPublicPath: '/',
-    module:{
-        rules: [
-            {
-              test: /\.css$/,
-              use: [
-                'style-loader',
-                'css-loader',
-                'less-loader'
-              ]
-            }
-          ]
-    },
+    // module:{
+    //     rules: [
+    //         {
+    //           test: /\.css$/,
+    //           use: [
+    //             'style-loader',
+    //             'css-loader',
+    //             'less-loader'
+    //           ]
+    //         }
+    //       ]
+    // },
     configureWebpack: (config) => {
         Object.assign(config, {
             // 开发生产共同配置
