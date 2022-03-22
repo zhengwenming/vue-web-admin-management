@@ -19,11 +19,11 @@ stages {
                             // sh ' npm install mirror-config-china --registry=https://registry.npmjs.org/'
                             // sh ' npm install sass-loader node-sass -D --registry=https://registry.npmjs.org/'
                             // sh ' npm install --registry=https://registry.npmjs.org/'
-                            sh  'npm cache clean --force'
+                            // sh  'npm cache clean --force'
                             sh  'npm -v'
                             sh  'node -v'
-                            sh  'npm install'
                             sh  'npm install -g cross-env  --no-bin-links'
+                            sh  'npm install'
                             sh  'npm run build-prod'
                        }
         }
@@ -32,11 +32,23 @@ stages {
                     sshPublisher(
                         publishers: [
                             sshPublisherDesc(
-                                configName: 'my-aliyun-server', transfers: [
-                                    sshTransfer(
-                                                 cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/demo', remoteDirectorySDF: false, removePrefix: 'dist/', sourceFiles: 'dist/**'
+                                configName: 'my-aliyun-server', 
+                                transfers: [
+                                            sshTransfer(
+                                                    cleanRemote: false,
+                                                    excludes: '',
+                                                    execCommand: '',
+                                                    execTimeout: 120000,
+                                                    flatten: false,
+                                                    makeEmptyDirs: false,
+                                                    noDefaultExcludes: false, 
+                                                    patternSeparator: '[, ]+', 
+                                                    remoteDirectory: '/demo', 
+                                                    remoteDirectorySDF: false, 
+                                                    removePrefix: 'dist/', 
+                                                    sourceFiles: 'dist/**'
                                                 )
-                                                                          ], 
+                                            ], 
                                                  usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false
                                             )
                                     ]
