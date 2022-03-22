@@ -19,8 +19,11 @@ stages {
                             // sh ' npm install mirror-config-china --registry=https://registry.npmjs.org/'
                             // sh ' npm install sass-loader node-sass -D --registry=https://registry.npmjs.org/'
                             // sh ' npm install --registry=https://registry.npmjs.org/'
+                            sh  'npm cache clean --force'
+                            sh  'npm -v'
+                            sh  'node -v'
+                            sh  'npm install'
                             sh  'npm install -g cross-env  --no-bin-links'
-                            sh  'npm install' 
                             sh  'npm run build-prod'
                        }
         }
